@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH Knowledge Base</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        #search-bar {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #0056b3;
+        }
+
+        #content-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-item {
+            padding: 20px;
+            background-color: #f1f1f1;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        .content-item img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .content-item h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .content-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AYUSH Knowledge Base</h1>
+            <input type="text" id="search-bar" placeholder="Search AYUSH Practices..." onkeyup="searchContent()">
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#" onclick="filterContent('ayurveda')">Ayurveda</a></li>
+                <li><a href="#" onclick="filterContent('yoga')">Yoga & Naturopathy</a></li>
+                <li><a href="#" onclick="filterContent('unani')">Unani</a></li>
+                <li><a href="#" onclick="filterContent('siddha')">Siddha</a></li>
+                <li><a href="#" onclick="filterContent('homeopathy')">Homeopathy</a></li>
+            </ul>
+        </nav>
+
+        <section id="content-list">
+            <div class="content-item" data-category="ayurveda">
+                <img src="https://via.placeholder.com/100" alt="Ayurveda">
+                <div>
+                    <h2><abbr title="This paper delves into the detailed scientific research and clinical studies on Ayurveda treatments.">Ayurveda Research Paper 1</abbr></h2>
+                    <p>Explore the scientific research in Ayurveda treatments.</p>
+                </div>
+            </div>
+            <div class="content-item" data-category="yoga">
+                <img src="https://via.placeholder.com/100" alt="Yoga">
+                <div>
+                    <h2><abbr title="A guide for beginners, covering key Yoga postures, breathing exercises, and mindfulness practices.">Yoga Guidelines for Beginners</abbr></h2>
+                    <p>Step-by-step guide to start your Yoga journey.</p>
+                </div>
+            </div>
+            <div class="content-item" data-category="unani">
+                <img src="https://via.placeholder.com/100" alt="Unani">
+                <div>
+                    <h2><abbr title="Detailed remedies and formulations used in Unani for healing and wellness.">Unani Herbal Remedies</abbr></h2>
+                    <p>Discover ancient remedies used in Unani practices.</p>
+                </div>
+            </div>
+            <div class="content-item" data-category="siddha">
+                <img src="https://via.placeholder.com/100" alt="Siddha">
+                <div>
+                    <h2><abbr title="Comprehensive therapeutic approaches used in Siddha practices for various health conditions.">Siddha Therapeutic Guidelines</abbr></h2>
+                    <p>A comprehensive guide to therapeutic practices in Siddha.</p>
+                </div>
+            </div>
+            <div class="content-item" data-category="homeopathy">
+                <img src="https://via.placeholder.com/100" alt="Homeopathy">
+                <div>
+                    <h2><abbr title="An effective Homeopathy approach to treating the common cold, detailing the remedies and dosages.">Homeopathy Treatment for Cold</abbr></h2>
+                    <p>Effective homeopathic treatments for common colds.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function searchContent() {
+            const input = document.getElementById('search-bar').value.toLowerCase();
+            const contentItems = document.querySelectorAll('.content-item');
+
+            contentItems.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function filterContent(category) {
+            const contentItems = document.querySelectorAll('.content-item');
+
+            contentItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (itemCategory === category || category === 'all') {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH Startup Registration - Status Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .status-details {
+            margin-top: 20px;
+        }
+        .status-details p {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>AYUSH Startup Registration - Status Tracking</h2>
+        <form action="track-status.php" method="post">
+            <label for="application-id">Enter Application ID:</label>
+            <input type="text" id="application-id" name="application-id" placeholder="Application ID" required>
+
+            <button type="submit">Track Status</button>
+        </form>
+
+        <div class="status-details">
+            <!-- Example status details, to be replaced with dynamic content -->
+            <p><strong>Status:</strong> Under Review</p>
+            <p><strong>Submission Date:</strong> 2024-09-01</p>
+            <p><strong>Last Updated:</strong> 2024-09-05</p>
+            <p><strong>Notifications:</strong> Your application is currently under review. You will receive an email once it is processed.</p>
+        </div>
+    </div>
+</body>
+</html>

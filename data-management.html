@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH Startup Registration - Data Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .button {
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>AYUSH Startup Registration - Data Management</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Startup ID</th>
+                    <th>Startup Name</th>
+                    <th>Contact Person</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Ayurveda Innovations</td>
+                    <td>Dr. A. Sharma</td>
+                    <td>dr.sharma@example.com</td>
+                    <td>(123) 456-7890</td>
+                    <td>Approved</td>
+                    <td class="actions">
+                        <a href="edit-startup.html?id=001" class="button">Edit</a>
+                        <a href="delete-startup.php?id=001" class="button">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Yoga Wellness</td>
+                    <td>Ms. R. Patel</td>
+                    <td>ms.patel@example.com</td>
+                    <td>(987) 654-3210</td>
+                    <td>Pending</td>
+                    <td class="actions">
+                        <a href="edit-startup.html?id=002" class="button">Edit</a>
+                        <a href="delete-startup.php?id=002" class="button">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>Unani Remedies</td>
+                    <td>Mr. S. Khan</td>
+                    <td>mr.khan@example.com</td>
+                    <td>(555) 123-4567</td>
+                    <td>Rejected</td>
+                    <td class="actions">
+                        <a href="edit-startup.html?id=003" class="button">Edit</a>
+                        <a href="delete-startup.php?id=003" class="button">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>004</td>
+                    <td>Siddha Solutions</td>
+                    <td>Dr. L. Naidu</td>
+                    <td>dr.naidu@example.com</td>
+                    <td>(444) 987-6543</td>
+                    <td>Approved</td>
+                    <td class="actions">
+                        <a href="edit-startup.html?id=004" class="button">Edit</a>
+                        <a href="delete-startup.php?id=004" class="button">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>005</td>
+                    <td>Homoeopathy Center</td>
+                    <td>Dr. M. Verma</td>
+                    <td>dr.verma@example.com</td>
+                    <td>(222) 333-4444</td>
+                    <td>Pending</td>
+                    <td class="actions">
+                        <a href="edit-startup.html?id=005" class="button">Edit</a>
+                        <a href="delete-startup.php?id=005" class="button">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

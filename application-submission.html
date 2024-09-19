@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH Startup Registration - Application Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="file"] {
+            padding: 3px;
+        }
+        button {
+            padding: 12px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #startVoiceCommand {
+            margin-bottom: 20px;
+            background-color: #007bff;
+            color: #fff;
+        }
+        #startVoiceCommand:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>AYUSH Startup Registration - Application Submission</h2>
+        <button type="button" id="startVoiceCommand">🎤 Start Voice Command</button>
+        <form action="submit-application.php" method="post" enctype="multipart/form-data">
+            <label for="startup-name">Startup Name:</label>
+            <input type="text" id="startup-name" name="name" required>
+
+            <label for="founder-name">Founder Name:</label>
+            <input type="text" id="founder-name" name="founder-name" required>
+
+            <label for="aadhaar-number">Aadhaar Card Number:</label>
+            <input type="text" id="aadhaar-number" name="aadhaar-number" required pattern="\d{12}" title="Please enter a 12-digit Aadhaar number">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+
+            <label for="sector">AYUSH Sector:</label>
+            <select id="sector" name="sector" required>
+                <option value="">Select your sector</option>
+                <option value="ayurveda">Ayurveda</option>
+                <option value="yoga">Yoga & Naturopathy</option>
+                <option value="unani">Unani</option>
+                <option value="siddha">Siddha</option>
+                <option value="homoeopathy">Homoeopathy</option>
+            </select>
+
+            <label for="registration-type">Registration Type:</label>
+            <select id="registration-type" name="registration-type" required>
+                <option value="">Select registration type</option>
+                <option value="new">New Registration</option>
+                <option value="renewal">Renewal</option>
+            </select>
+
+            <label for="documents">Upload Documents:</label>
+            <input type="file" id="documents" name="documents[]" multiple required>
+
+            <label for="description">Description of Startup:</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+
+            <label for="terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the terms and conditions.
+            </label>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        // Ensure compatibility with different browsers
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (window.SpeechRecognition) {
+            const recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+
+            const fields = {
+                'startup name': 'startup-name',
+                'founder name': 'founder-name',
+                'aadhaar card number': 'aadhaar-number',
+                'email address': 'email',
+                'phone number': 'phone',
+                'address': 'address',
+                'ayush sector': 'sector',
+                'registration type': 'registration-type',
+                'description of startup': 'description'
+            };
+
+            let currentField = null;
+
+            document.getElementById('startVoiceCommand').addEventListener('click', () => {
+                recognition.start();
+                alert('Voice command started. Please say the name of the field followed by its value.');
+            });
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript.toLowerCase().trim();
+                console.log("Heard: " + transcript);
+
+                if (currentField === null) {
+                    for (let field in fields) {
+                        if (transcript.includes(field)) {
+                            currentField = fields[field];
+                            document.getElementById(currentField).placeholder = `Listening for ${field}...`;
+                            console.log("Listening for " + field);
+                            break;
+                        }
+                    }
+                } else {
+                    document.getElementById(currentField).value = transcript;
+                    document.getElementById(currentField).placeholder = `Say '${currentField}' to edit`;
+                    currentField = null;
+                }
+            };
+
+            recognition.onspeechend = () => {
+                recognition.stop();
+                if (currentField) {
+                    recognition.start(); // Continue listening if we're still expecting input
+                }
+            };
+
+            recognition.onerror = (event) => {
+                console.error("Speech recognition error detected: " + event.error);
+            };
+        } else {
+            alert("Your browser does not support speech recognition. Please try this in Chrome or Edge.");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH Startup Registration - Support and Resources</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        .faq-item h4 {
+            font-size: 18px;
+            margin: 0;
+        }
+        .faq-item p {
+            margin: 5px 0;
+        }
+        .contact-form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+        .resources a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .resources a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Support and Resources</h2>
+
+        <!-- FAQ Section -->
+        <div class="section">
+            <h3>Frequently Asked Questions (FAQs)</h3>
+            <div class="faq-item">
+                <h4>How do I register a startup?</h4>
+                <p>To register a startup, you need to visit the <a href="application-submission.html">Application Submission</a> page and fill out the required forms with your startup details.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What documents are required for registration?</h4>
+                <p>You will need to upload documents such as your Aadhar card, proof of business address, and any relevant AYUSH certifications. Visit the <a href="document-upload.html">Document Upload</a> page for more details.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How can I track my application status?</h4>
+                <p>You can track the status of your application in real-time by visiting the <a href="status-tracking.html">Status Tracking</a> page.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Who can I contact for support?</h4>
+                <p>For support, you can use the contact form below or check our <a href="#support-resources">Support Resources</a> section for more information.</p>
+            </div>
+        </div>
+
+        <!-- Contact Support Section -->
+        <div class="section">
+            <h3>Contact Support</h3>
+            <div class="contact-form">
+                <form action="submit-support-request.php" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="section resources">
+            <h3>Useful Resources</h3>
+            <ul>
+                <li><a href="#">AYUSH Regulatory Guidelines</a></li>
+                <li><a href="#">Startup Registration Process</a></li>
+                <li><a href="#">Document Requirements for AYUSH Startups</a></li>
+                <li><a href="#">Contact Details for AYUSH Authorities</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

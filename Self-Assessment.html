@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Assessment Tools</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .quiz-section {
+            margin-bottom: 20px;
+        }
+        .quiz-section h2 {
+            color: #555;
+        }
+        .quiz-item {
+            margin-bottom: 15px;
+        }
+        .quiz-item label {
+            margin-left: 8px;
+            font-size: 16px;
+        }
+        .results {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .results p {
+            font-size: 18px;
+            color: #333;
+        }
+        .hidden {
+            display: none;
+        }
+        .checklist-item {
+            margin-bottom: 10px;
+        }
+        .buttons {
+            text-align: center;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        button.reset {
+            background-color: #d9534f;
+        }
+        button.reset:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Self-Assessment Tool</h1>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section">
+            <h2>Health Risk Quiz</h2>
+
+            <!-- Adding 12 quiz questions -->
+            <div class="quiz-item">
+                <p>1. How often do you exercise?</p>
+                <input type="radio" id="exercise1" name="exercise" value="1">
+                <label for="exercise1">Never</label><br>
+                <input type="radio" id="exercise2" name="exercise" value="2">
+                <label for="exercise2">Rarely</label><br>
+                <input type="radio" id="exercise3" name="exercise" value="3">
+                <label for="exercise3">Sometimes</label><br>
+                <input type="radio" id="exercise4" name="exercise" value="4">
+                <label for="exercise4">Often</label><br>
+                <input type="radio" id="exercise5" name="exercise" value="5">
+                <label for="exercise5">Always</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>2. How would you rate your current stress levels?</p>
+                <input type="radio" id="stress1" name="stress" value="1">
+                <label for="stress1">Very Low</label><br>
+                <input type="radio" id="stress2" name="stress" value="2">
+                <label for="stress2">Low</label><br>
+                <input type="radio" id="stress3" name="stress" value="3">
+                <label for="stress3">Moderate</label><br>
+                <input type="radio" id="stress4" name="stress" value="4">
+                <label for="stress4">High</label><br>
+                <input type="radio" id="stress5" name="stress" value="5">
+                <label for="stress5">Very High</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>3. How balanced is your diet?</p>
+                <input type="radio" id="diet1" name="diet" value="1">
+                <label for="diet1">Very Poor</label><br>
+                <input type="radio" id="diet2" name="diet" value="2">
+                <label for="diet2">Poor</label><br>
+                <input type="radio" id="diet3" name="diet" value="3">
+                <label for="diet3">Average</label><br>
+                <input type="radio" id="diet4" name="diet" value="4">
+                <label for="diet4">Good</label><br>
+                <input type="radio" id="diet5" name="diet" value="5">
+                <label for="diet5">Excellent</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>4. How often do you experience fatigue or headaches?</p>
+                <input type="radio" id="symptoms1" name="symptoms" value="1">
+                <label for="symptoms1">Never</label><br>
+                <input type="radio" id="symptoms2" name="symptoms" value="2">
+                <label for="symptoms2">Rarely</label><br>
+                <input type="radio" id="symptoms3" name="symptoms" value="3">
+                <label for="symptoms3">Sometimes</label><br>
+                <input type="radio" id="symptoms4" name="symptoms" value="4">
+                <label for="symptoms4">Often</label><br>
+                <input type="radio" id="symptoms5" name="symptoms" value="5">
+                <label for="symptoms5">Always</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>5. How often do you smoke?</p>
+                <input type="radio" id="smoke1" name="smoke" value="1">
+                <label for="smoke1">Never</label><br>
+                <input type="radio" id="smoke2" name="smoke" value="2">
+                <label for="smoke2">Rarely</label><br>
+                <input type="radio" id="smoke3" name="smoke" value="3">
+                <label for="smoke3">Sometimes</label><br>
+                <input type="radio" id="smoke4" name="smoke" value="4">
+                <label for="smoke4">Often</label><br>
+                <input type="radio" id="smoke5" name="smoke" value="5">
+                <label for="smoke5">Always</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>6. How often do you consume alcohol?</p>
+                <input type="radio" id="alcohol1" name="alcohol" value="1">
+                <label for="alcohol1">Never</label><br>
+                <input type="radio" id="alcohol2" name="alcohol" value="2">
+                <label for="alcohol2">Rarely</label><br>
+                <input type="radio" id="alcohol3" name="alcohol" value="3">
+                <label for="alcohol3">Sometimes</label><br>
+                <input type="radio" id="alcohol4" name="alcohol" value="4">
+                <label for="alcohol4">Often</label><br>
+                <input type="radio" id="alcohol5" name="alcohol" value="5">
+                <label for="alcohol5">Always</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>7. How often do you meditate or practice relaxation techniques?</p>
+                <input type="radio" id="relax1" name="relax" value="1">
+                <label for="relax1">Never</label><br>
+                <input type="radio" id="relax2" name="relax" value="2">
+                <label for="relax2">Rarely</label><br>
+                <input type="radio" id="relax3" name="relax" value="3">
+                <label for="relax3">Sometimes</label><br>
+                <input type="radio" id="relax4" name="relax" value="4">
+                <label for="relax4">Often</label><br>
+                <input type="radio" id="relax5" name="relax" value="5">
+                <label for="relax5">Always</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>8. How would you rate your sleep quality?</p>
+                <input type="radio" id="sleep1" name="sleep" value="1">
+                <label for="sleep1">Very Poor</label><br>
+                <input type="radio" id="sleep2" name="sleep" value="2">
+                <label for="sleep2">Poor</label><br>
+                <input type="radio" id="sleep3" name="sleep" value="3">
+                <label for="sleep3">Average</label><br>
+                <input type="radio" id="sleep4" name="sleep" value="4">
+                <label for="sleep4">Good</label><br>
+                <input type="radio" id="sleep5" name="sleep" value="5">
+                <label for="sleep5">Excellent</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>9. Do you suffer from any chronic illnesses?</p>
+                <input type="radio" id="illness1" name="illness" value="1">
+                <label for="illness1">No</label><br>
+                <input type="radio" id="illness2" name="illness" value="2">
+                <label for="illness2">Yes</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>10. How often do you visit a doctor for regular checkups?</p>
+                <input type="radio" id="checkup1" name="checkup" value="1">
+                <label for="checkup1">Never</label><br>
+                <input type="radio" id="checkup2" name="checkup" value="2">
+                <label for="checkup2">Rarely</label><br>
+                <input type="radio" id="checkup3" name="checkup" value="3">
+                <label for="checkup3">Sometimes</label><br>
+                <input type="radio" id="checkup4" name="checkup" value="4">
+                <label for="checkup4">Often</label><br>
+                <input type="radio" id="checkup5" name="checkup" value="5">
+                <label for="checkup5">Always</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>11. How would you rate your overall mental well-being?</p>
+                <input type="radio" id="mental1" name="mental" value="1">
+                <label for="mental1">Very Poor</label><br>
+                <input type="radio" id="mental2" name="mental" value="2">
+                <label for="mental2">Poor</label><br>
+                <input type="radio" id="mental3" name="mental" value="3">
+                <label for="mental3">Average</label><br>
+                <input type="radio" id="mental4" name="mental" value="4">
+                <label for="mental4">Good</label><br>
+                <input type="radio" id="mental5" name="mental" value="5">
+                <label for="mental5">Excellent</label>
+            </div>
+
+            <div class="quiz-item">
+                <p>12. How do you handle major life changes or challenges?</p>
+                <input type="radio" id="challenges1" name="challenges" value="1">
+                <label for="challenges1">Very Poorly</label><br>
+                <input type="radio" id="challenges2" name="challenges" value="2">
+                <label for="challenges2">Poorly</label><br>
+                <input type="radio" id="challenges3" name="challenges" value="3">
+                <label for="challenges3">Average</label><br>
+                <input type="radio" id="challenges4" name="challenges" value="4">
+                <label for="challenges4">Well</label><br>
+                <input type="radio" id="challenges5" name="challenges" value="5">
+                <label for="challenges5">Very Well</label>
+            </div>
+
+            <!-- Results and Buttons -->
+            <div class="results hidden">
+                <p>Your result: <span id="result"></span></p>
+            </div>
+
+            <div class="buttons">
+                <button onclick="calculateResult()">Submit</button>
+                <button class="reset" onclick="resetForm()">Reset</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function calculateResult() {
+            var score = 0;
+
+            // Loop through each quiz question
+            var questions = ['exercise', 'stress', 'diet', 'symptoms', 'smoke', 'alcohol', 'relax', 'sleep', 'illness', 'checkup', 'mental', 'challenges'];
+            questions.forEach(function(question) {
+                var radios = document.getElementsByName(question);
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        score += parseInt(radios[i].value);
+                    }
+                }
+            });
+
+            var resultText = "";
+
+            // Determine the result
+            if (score <= 20) {
+                resultText = "Low health risk.";
+            } else if (score <= 40) {
+                resultText = "Moderate health risk.";
+            } else {
+                resultText = "High health risk.";
+            }
+
+            document.getElementById("result").innerText = resultText;
+            document.querySelector(".results").classList.remove("hidden");
+        }
+
+        function resetForm() {
+            var radios = document.querySelectorAll('input[type="radio"]');
+            radios.forEach(function(radio) {
+                radio.checked = false;
+            });
+
+            document.querySelector(".results").classList.add("hidden");
+            document.getElementById("result").innerText = "";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH Startup Registration Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Header */
+        header {
+            background-color: #2E8B57;
+            padding: 15px 20px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header img {
+            height: 50px;
+        }
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .search-bar {
+            background: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        /* Hero Section */
+        .hero {
+            background: url('banner-image.jpg') no-repeat center center/cover;
+            height: 60vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .hero .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .cta-buttons a {
+            background-color: #2E8B57;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .cta-buttons a:hover {
+            background-color: #3CB371;
+        }
+        /* Features Section */
+        .features {
+            padding: 40px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .features h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .feature {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+            position: relative;
+        }
+        .feature h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .feature p {
+            margin-bottom: 20px;
+        }
+        .feature .action-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: #2E8B57;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .feature .action-button:hover {
+            background-color: #3CB371;
+        }
+        /* How It Works Section */
+        .how-it-works {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .how-it-works h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .step {
+            background: #2E8B57;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            flex-grow: 1;
+            max-width: 200px;
+            text-align: center;
+        }
+        .step h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        /* Testimonials Section */
+        .testimonials {
+            padding: 40px 20px;
+            background-color: #f4f4f4;
+        }
+        .testimonials h2 {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .testimonial {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 20px;
+            max-width: 600px;
+        }
+        /* Latest Updates Section */
+        .latest-updates {
+            padding: 40px 20px;
+        }
+        .latest-updates h2 {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .updates-list {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .updates-list li {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Chatbot */
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .chatbot-header {
+            background: #2E8B57;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .chatbot-messages {
+            padding: 10px;
+            overflow-y: auto;
+            flex-grow: 1;
+            height: 300px;
+        }
+        .chatbot-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+        .chatbot-input input {
+            border: none;
+            padding: 10px;
+            flex-grow: 1;
+            border-bottom-left-radius: 10px;
+        }
+        .chatbot-input button {
+            border: none;
+            background: #2E8B57;
+            color: #fff;
+            padding: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .chatbot-input button:hover {
+            background: #3CB371;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="ayush-logo.png" alt="AYUSH Logo">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Registration Process</a>
+            <a href="#">Resources</a>
+            <a href="#">Support</a>
+            <input type="text" class="search-bar" placeholder="Search...">
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Empowering AYUSH Startups for a Healthier Tomorrow</h1>
+        <p>Simplifying the registration process for innovative AYUSH ventures.</p>
+        <div class="cta-buttons">
+            <a href="get-started.html">Get Started</a>
+            <a href="#">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="features">
+        <h2>Key Features</h2>
+        <div class="feature-list">
+            <div class="feature">
+                <h3>User Authentication</h3>
+                <p>Secure login for startups, government officials, and other stakeholders.</p>
+                <a href="user-authentication.html" class="action-button">Go to User Authentication</a>
+            </div>
+            <div class="feature">
+                <h3>Application Submission</h3>
+                <p>Streamlined forms for submitting registration applications with clear instructions.</p>
+                <a href="application-submission.html" class="action-button">Go to Application Submission</a>
+            </div>
+            <div class="feature">
+                <h3>Document Upload</h3>
+                <p>Easy upload and management of necessary documents, ensuring compliance with AYUSH regulations.</p>
+                <a href="document-upload.html" class="action-button">Go to Document Upload</a>
+            </div>
+            <div class="feature">
+                <h3>Status Tracking</h3>
+                <p>Real-time tracking of application status, notifications, and updates for applicants.</p>
+                <a href="status-tracking.html" class="action-button">Go to Status Tracking</a>
+            </div>
+            <div class="feature">
+                <h3>Data Management</h3>
+                <p>Efficient handling and storage of startup data, ensuring privacy and security.</p>
+                <a href="data-management.html" class="action-button">Go to Data Management</a>
+            </div>
+            <div class="feature">
+                <h3>Support and Resources</h3>
+                <p>Access to resources, FAQs, and support for startups during the registration process.</p>
+                <a href="support-resources.html" class="action-button">Go to Support and Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>Sign Up</h3>
+                <p>Create your account to get started.</p>
+            </div>
+            <div class="step">
+                <h3>Submit Application</h3>
+                <p>Fill out the form and submit your documents.</p>
+            </div>
+            <div class="step">
+                <h3>Track Progress</h3>
+                <p>Stay updated with your application status.</p>
+            </div>
+            <div class="step">
+                <h3>Get Approved</h3>
+                <p>Receive your registration approval.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial">
+            <p>"The AYUSH Startup Registration Portal made our registration process so much easier! Highly recommend it to any startup in the sector."</p>
+            <p><strong>- Ayurvedic Wellness Co.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"We were able to track our application status in real-time, which gave us peace of mind. The support team was also very helpful."</p>
+            <p><strong>- Holistic Health Inc.</strong></p>
+        </div>
+    </section>
+
+    <!-- Latest Updates Section -->
+    <section class="latest-updates">
+        <h2>Latest Updates</h2>
+        <ul class="updates-list">
+            <li>New guidelines for AYUSH startups have been released. <a href="#">Read more</a></li>
+            <li>Upcoming webinar on AYUSH regulations and compliance. <a href="#">Register now</a></li>
+            <li>Success story: How a small Unani startup scaled using the portal. <a href="#">Learn more</a></li>
+        </ul>
+    </section>
+
+    <!-- Chatbot -->
+    <div class="chatbot">
+        <div class="chatbot-header">Chatbot</div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chat-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="#">Registration Process</a>
+            <a href="#">Resources</a>
+            <a href="#">Support</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p>&copy; 2024 AYUSH Startup Registration Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+       // JavaScript for Chatbot
+document.getElementById('send-button').addEventListener('click', function() {
+    var input = document.getElementById('chat-input').value;
+    if (input.trim() === '') return;
+
+    var messages = document.getElementById('chatbot-messages');
+    
+    // Display user message
+    var userMessage = document.createElement('div');
+    userMessage.textContent = 'You: ' + input;
+    userMessage.style.textAlign = 'right';
+    messages.appendChild(userMessage);
+    
+    // Generate bot response
+    var botResponse = document.createElement('div');
+    botResponse.textContent = getBotResponse(input);
+    messages.appendChild(botResponse);
+
+    // Scroll to the bottom of the chat
+    messages.scrollTop = messages.scrollHeight;
+    document.getElementById('chat-input').value = '';
+});
+
+function getBotResponse(input) {
+    var responses = {
+        "What are the registration requirements?": "To register, you need to provide business details, AYUSH product information, and relevant documents.",
+        "How can I upload my documents?": "Go to the 'Document Upload' section in the portal and select 'Upload Documents' to upload your files.",
+        "Where can I find the application form?": "You can find the application form under the 'Application Submission' section.",
+        "What is the status of my application?": "Check your application status in the 'Status Tracking' section for real-time updates.",
+        "How long does the approval process take?": "The approval process usually takes 2-4 weeks, depending on the completeness of your application.",
+        "Can I edit my application after submission?": "No, once submitted, you cannot edit your application. Please contact support for any changes.",
+        "I need help with the application form.": "For help with the application form, visit the 'Support and Resources' section for guides and FAQs.",
+        "What is AYUSH?": "AYUSH stands for Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homoeopathy.",
+        "How do I contact support?": "You can contact support via the 'Support' link in the navigation bar or email support@ayushportal.com.",
+        "Is there a way to track my application's progress?": "Yes, you can track your application's progress in the 'Status Tracking' section.",
+        "What documents are required for registration?": "Required documents include proof of business registration, product details, and any applicable licenses.",
+        "Can I apply for multiple AYUSH products at once?": "Yes, you can apply for multiple products, but each product requires a separate application.",
+        "How do I update my contact information?": "To update your contact information, visit the 'User Profile' section in the portal.",
+        "What if I forgot my password?": "Use the 'Forgot Password' link on the login page to reset your password.",
+        "Can I submit the application in person?": "Currently, applications must be submitted online through the portal.",
+        "How can I view my past applications?": "View your past applications in the 'Application History' section.",
+        "What should I do if my application is rejected?": "If your application is rejected, you will receive a notification with reasons and next steps.",
+        "How do I know if my documents are accepted?": "You will receive a confirmation message once your documents are reviewed and accepted.",
+        "Can I get a refund if I cancel my application?": "Refund policies are available in the 'Refund Policy' section of the portal.",
+        "What is the next step after application submission?": "After submission, your application will be reviewed, and you will receive updates on its status.",
+        "Are there any fees for registration?": "Information about registration fees can be found in the 'Fees and Payment' section.",
+        "How can I provide feedback about the portal?": "You can provide feedback through the 'Feedback' link in the footer.",
+        "What is the purpose of this portal?": "The portal aims to simplify and streamline the registration process for AYUSH startups.",
+        "How often is the portal updated?": "The portal is updated regularly to ensure accurate and current information.",
+        "Can I contact other startups through the portal?": "The portal does not currently support direct contact between startups.",
+        "Is the portal mobile-friendly?": "Yes, the portal is designed to be accessible and functional on mobile devices.",
+        "How secure is my data on the portal?": "We use industry-standard encryption and security measures to protect your data.",
+        "What should I do if I encounter a technical issue?": "Report technical issues through the 'Support' section or contact technical support.",
+        "Are there any upcoming webinars or events?": "Check the 'Latest Updates' section for information on upcoming webinars and events.",
+        "How can I integrate with AYUSH regulations?": "Guidelines for integrating with AYUSH regulations are available in the 'Resources' section.",
+        "Can I apply if I am not based in India?": "The portal is currently for startups based in India only.",
+        "What is the best way to prepare my application?": "Ensure you have all required documents and follow the application instructions carefully.",
+        "How do I contact the portal administrators?": "Contact the administrators through the 'Contact Us' link in the footer.",
+        "Is there a help guide available?": "Yes, a help guide is available in the 'Support and Resources' section.",
+        "Can I save my application and complete it later?": "You can save your progress and return to complete your application later.",
+        "What happens after my application is approved?": "After approval, you will receive your registration certificate and further instructions.",
+        "How do I change my registered email address?": "Change your registered email address in the 'User Profile' section."
+    };
+
+    // Return a response based on the input or a default message
+    return responses[input] || "Assistant: I'm not sure how to help with that. Please check the FAQs or contact support.";
+}
+
+    </script>
+</body>
+</html>
